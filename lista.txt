@@ -1,0 +1,42 @@
+Lista 1.
+Pêtle, funkcje, tablice
+1.    Napisz program, który:
+a)    Pobierze od u¿ytkownika jego datê urodzenia (format dd-mm-yyyy), nastêpnie na tej podstawie okreœli jego wiek, oraz w jaki dzieñ tygodnia przypadaj¹ jego urodziny w tym roku oraz za 15 lat.
+b)    Wyœwietli u¿ytkownikowi komunikat „Witaj, masz X lat, w tym roku Twoje urodziny wypadaj¹ w [dzieñ tygodnia], za 15 lat bêdziesz œwiêtowaæ w [dzieñ tygodnia urodzin za 15 lat]”.
+c)    Za pomoc¹ elementów sk³adni jêzyka Python zabezpiecz program przed nieodpowiednim zachowaniem u¿ytkownika
+
+2.    W linku: https://pastebin.com/Zamu9HSa znajduje siê wynik zapytania jaki zosta³ zwrócony przez Facebook Graph API. Obiekt zawiera informacje o miejscach w promieniu 8miu kilometrów od centrum Wa³brzycha. Zapisz zwrócony wynik do zmiennej a nastêpnie napisz program, który:
+a)    Wyœwietli u¿ytkownikowi informacjê o iloœci obiektów w okolicy np. „Witaj u¿ytkowniku! Z okolicy znajduje siê [X] miejsc, które warto odwiedziæ”
+b)    Pobierze od u¿ytkownika jego wspó³rzêdne geograficzne  (np.: 50.7840092, 16.2843553) i wyœwietli listê numerowan¹ obiektów znajduj¹cych siê w promieniu 1000 m od podanych wspó³rzêdnych.
+c)    Za pomoc¹ elementów sk³adni jêzyka Python zabezpiecz program przed nieodpowiednim zachowaniem u¿ytkownika
+=========================================================================================
+https://www.quantbarbie.com/blog/2018/7/11/calculate-the-distance-between-two-places-in-python
+https://gist.github.com/haoliangyu/78971020cd8fffa39821
+===============================================================
+from math import radians, cos, sin, asin, sqrt
+
+def haversine(lon1, lat1, lon2, lat2):
+    """
+    Calculate the great circle distance between two points 
+    on the earth (specified in decimal degrees)
+    """
+    # convert decimal degrees to radians 
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+
+    # haversine formula 
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+
+    # 6371 km is the radius of the Earth
+    km = 6371 * c
+    return km 
+
+3.    Napisz program, który:
+a)    Zapyta siê u¿ytkownika pole jakiej figury chce policzyæ (trójk¹t, trapez, prostok¹t, kwadrat)
+b)    Poprosi u¿ytkownika o podanie niezbêdnych danych do policzenia pola tej figury
+c)    Obliczy i wyœwietli wynik u¿ytkownikowi
+d)    Za pomoc¹ elementów sk³adni jêzyka Python zabezpiecz program przed nieodpowiednim zachowaniem u¿ytkownika
+
+Wykonuj¹c zadania staraj siê by program by³ pisany z u¿yciem jak najmniejszej iloœci kodu (podejœcie KISS, DRY). W celu wykonania zadañ mo¿esz posi³kowaæ siê zalecan¹ literatur¹, oraz wyszukiwark¹ Google.

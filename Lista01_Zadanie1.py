@@ -9,39 +9,57 @@
 # Funkcja sprawdzająca poprawność wprowadzonej daty i zwracająca datę w formacie dd-mm-yyyy
 def SprawdzenieDaty (tekst_zachety):
     import datetime
-    data_=input(tekst_zachety)
-    data_ = datetime.datetime.strptime(data_, "%d-%m-%Y")
-    return data_
+    dataU=input(tekst_zachety)
+    try:
+        dataU = datetime.datetime.strptime(dataU, "%d-%m-%Y")
+        return dataU 
+    except ValueError:
+        print ("Blad daty")   
+def DzienPL (ag):
+    #zwraca dzień tygodnia po polsku
+    if ag==0:
+        return "Poniedziałek"
+    elif ag==1:
+        return "Wtorek"
+    elif ag==2:
+        return "Środa"
+    elif ag==3:
+        return"Czwartek"
+    elif ag==4:
+        return"Piątek"
+    elif ag==5:
+        return"Sobota"
+    elif ag==6:
+        return"Niedziela"
 
-def SprawdzenieDaty2(tekst_zachety):
-    import datetime
-    data_u = '01-01-1900'
-    while data_u != datetime.datetime.strptime(data_u, "%d-%m-%Y"):
-        data_u = input(tekst_zachety)
-        data_u =datetime.datetime.strptime(data_u, "%d-%m-%Y")        
-    return data_u
+  
 
    
 
 
 # ******** Program glowny ********#
 import calendar, datetime
-#data = SprawdzenieDaty( "Podaj datę urodzenia: ")
-data_rob = '12-06-1965'
-data = datetime.datetime.strptime(data_rob,  "%d-%m-%Y")
+
+data = SprawdzenieDaty( "Podaj datę urodzenia w formacie dd-mm-rrrr: " )
+#data_rob = '12-06-1965'
+#data = datetime.datetime.strptime(data_rob,  "%d-%m-%Y")
 d =data.day
 m =data.month
 today2 = data.today()
 y= today2.year
 Teraz = datetime.date(y, m, d)
 Przyszlosc = datetime.date(y+15, m, d)
-day=calendar.day_name[data.weekday()]
+#day=calendar.day_name[data.weekday()]
+day=DzienPL(data.weekday())
 print ("Twoja data urodzin " + str(data) + " dzień urodzin to " +str(day))
 #data urodzin w tym roku
-day=calendar.day_name[Teraz.weekday()]
+#day=calendar.day_name[Teraz.weekday()]
+day=DzienPL(Teraz.weekday())
 print ("W tym roku urodziny wypadają w: " + str(day))
 #data urodzin za 15 lat
-day= calendar.day_name[Przyszlosc.weekday()]
+#day= calendar.day_name[Przyszlosc.weekday()]
+day=DzienPL(Przyszlosc.weekday())
 print ("Urodziny w " + str(Przyszlosc) + " wypadają w "+  str(day))
+
 
 

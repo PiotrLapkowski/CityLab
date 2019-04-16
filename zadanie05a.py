@@ -67,6 +67,7 @@ def Dopisz():
     moja_baza.commit()
 #Edycja rekordu w bazie danych
 def  Edycja():
+    Lista()
     ID = input("Podaj numer danych do edycji: ")
     Imie =input("Imię: ")
     Nazwisko=input("Nazwisko: ")
